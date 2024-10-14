@@ -34,3 +34,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     Route::apiResource('/tasks', TasksController::class);
     Route::get('/tasks/status/{status}', [TasksController::class, 'filterByStatus']);
 });
+// Rotas de autenticação e recuperação de senha
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
+Route::post('/reset-password', [AuthController::class, 'resetPassword']);
